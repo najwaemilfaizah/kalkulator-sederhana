@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATK Najwa Emza - Kasir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- BAGIAN KIRI -->
+        <div class="panel kasir-panel">
+
+            <div class="header">
+                <h1>ATK Najwa Emza</h1>
+                <p>Kasir Alat Tulis Kantor</p>
+            </div>
+
+            <div class="input-area">
+
+                <label for="kodeBarang">Kode Barang</label>
+                <input 
+                    type="text" 
+                    id="kodeBarang" 
+                    placeholder="Masukkan kode barang..."
+                    autocomplete="off"
+                >
+
+                <div id="infoBarang" class="info-bar">
+                    Masukkan kode barang
+                </div>
+
+                <label for="jumlahBarang">Jumlah</label>
+                <input 
+                    type="number" 
+                    id="jumlahBarang" 
+                    placeholder="Masukkan jumlah..."
+                    min="1"
+                >
+
+                <button id="btnTambah" class="btn-primary">
+                    Tambahkan ke Struk
+                </button>
+
+
+                <button id="btnSelesai" class="btn-finish">
+                    Selesai Belanja
+                </button>
+
+            </div>
+
+
+            <!-- DAFTAR BARANG -->
+            <div class="daftar-produk">
+                <h2>Daftar Kode Barang</h2>
+
+                <div class="produk-grid" id="produkGrid">
+                    <!-- Diisi otomatis oleh JavaScript -->
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- BAGIAN TENGAH: STRUK -->
+        <div class="receipt-wrapper">
+
+            <div class="receipt" id="receipt">
+
+                <div class="receipt-header">
+                    <h2>ATK NAJWA EMZA</h2>
+                    <p>ALAT TULIS KANTOR</p>
+                    <p>================================</p>
+                    <p id="tanggalStruk"></p>
+                    <p id="nomorTransaksi"></p>
+                    <p>================================</p>
+                </div>
+
+                <div id="daftarBelanja">
+                    <p class="empty-cart">
+                        Belum ada barang
+                    </p>
+                </div>
+
+                <div class="receipt-total">
+
+                    <p>--------------------------------</p>
+
+                    <div class="total-row">
+                        <span>TOTAL</span>
+                        <strong id="totalHarga">Rp0</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>BAYAR</span>
+                        <strong id="uangBayar">Rp0</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>KEMBALI</span>
+                        <strong id="uangKembali">Rp0</strong>
+                    </div>
+
+                    <p>================================</p>
+
+                    <p class="thank-you">
+                        TERIMA KASIH
+                    </p>
+
+                    <p class="thank-you">
+                        SELAMAT DATANG KEMBALI
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button id="btnPrint" class="btn-print">
+                🖨 Cetak Struk
+            </button>
+
+        </div>
+
+        <!-- BAGIAN KANAN: KALKULATOR -->
+        <div class="panel calculator-panel">
+
+            <h2>Kalkulator</h2>
+
+            <div class="calculator">
+
+                <input 
+                    type="text" 
+                    id="calcDisplay" 
+                    class="calc-display"
+                    value="0"
+                    readonly
+                >
+
+                <div class="calc-buttons">
+
+                    <button onclick="clearCalculator()" class="operator">
+                        C
+                    </button>
+
+                    <button onclick="deleteNumber()" class="operator">
+                        DEL
+                    </button>
+
+                    <button onclick="inputOperator('/')" class="operator">
+                        ÷
+                    </button>
+
+                    <button onclick="inputOperator('*')" class="operator">
+                        ×
+                    </button>
+
+
+                    <button onclick="inputNumber('7')">
+                        7
+                    </button>
+
+                    <button onclick="inputNumber('8')">
+                        8
+                    </button>
+
+                    <button onclick="inputNumber('9')">
+                        9
+                    </button>
+
+                    <button onclick="inputOperator('-')" class="operator">
+                        −
+                    </button>
+
+
+                    <button onclick="inputNumber('4')">
+                        4
+                    </button>
+
+                    <button onclick="inputNumber('5')">
+                        5
+                    </button>
+
+                    <button onclick="inputNumber('6')">
+                        6
+                    </button>
+
+                    <button onclick="inputOperator('+')" class="operator">
+                        +
+                    </button>
+
+
+                    <button onclick="inputNumber('1')">
+                        1
+                    </button>
+
+                    <button onclick="inputNumber('2')">
+                        2
+                    </button>
+
+                    <button onclick="inputNumber('3')">
+                        3
+                    </button>
+
+                    <button onclick="calculate()" class="equal">
+                        =
+                    </button>
+
+
+                    <button onclick="inputNumber('0')" class="zero">
+                        0
+                    </button>
+
+                    <button onclick="inputNumber('.')">
+                        .
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL PEMBAYARAN -->
+    <div id="paymentModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>Pembayaran</h2>
+
+            <p>Total Belanja:</p>
+
+            <h1 id="modalTotal">
+                Rp0
+            </h1>
+
+            <label for="inputBayar">
+                Uang Pembayaran
+            </label>
+
+            <input 
+                type="number"
+                id="inputBayar"
+                placeholder="Masukkan uang..."
+            >
+
+            <div class="payment-result">
+
+                <p>
+                    Kembalian:
+                    <strong id="modalKembalian">
+                        Rp0
+                    </strong>
+                </p>
+
+            </div>
+
+            <button id="btnProsesBayar" class="btn-primary">
+                Proses Pembayaran
+            </button>
+
+            <button id="btnTutupModal" class="btn-cancel">
+                Batal
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

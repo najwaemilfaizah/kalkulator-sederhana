@@ -1,0 +1,460 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e9e9e9;
+    min-height: 100vh;
+    padding: 30px;
+    color: #222;
+}
+
+.container {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 380px 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+    margin-bottom: 7px;
+}
+
+.header p {
+    color: #777;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-area label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.input-area input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-area input:focus {
+    border-color: #222;
+}
+
+.info-bar {
+    background: #f2f2f2;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    width: 100%;
+    background: #222;
+    color: white;
+    padding: 13px;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background: #000;
+}
+
+.btn-finish {
+    width: 100%;
+    background: #d4a017;
+    color: white;
+    padding: 13px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+.btn-print {
+    width: 100%;
+    background: #222;
+    color: white;
+    padding: 14px;
+    border-radius: 7px;
+    margin-top: 15px;
+}
+
+.btn-cancel {
+    width: 100%;
+    background: #ddd;
+    color: #222;
+    padding: 12px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   DAFTAR PRODUK
+========================= */
+
+.daftar-produk {
+    margin-top: 30px;
+}
+
+.daftar-produk h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.produk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.produk-item {
+    background: #f5f5f5;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.produk-item strong {
+    display: block;
+}
+
+.produk-item span {
+    color: #666;
+}
+
+
+/* =========================
+   STRUK
+========================= */
+
+.receipt-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.receipt {
+    background: white;
+    width: 100%;
+    max-width: 380px;
+    padding: 25px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    min-height: 500px;
+}
+
+.receipt-header {
+    text-align: center;
+    line-height: 1.5;
+}
+
+.receipt-header h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.receipt-header p {
+    font-size: 12px;
+}
+
+
+.receipt-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.item-name {
+    font-weight: bold;
+}
+
+.item-detail {
+    grid-column: 1 / 2;
+    color: #555;
+}
+
+.item-total {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    text-align: right;
+    align-self: center;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #999;
+    margin: 40px 0;
+}
+
+.receipt-total {
+    margin-top: 15px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-size: 13px;
+}
+
+.total-row strong {
+    font-weight: bold;
+}
+
+.thank-you {
+    text-align: center;
+    margin-top: 8px;
+}
+
+
+/* =========================
+   KALKULATOR
+========================= */
+
+.calculator-panel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calculator {
+    width: 100%;
+}
+
+.calc-display {
+    width: 100%;
+    height: 65px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    text-align: right;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calc-buttons button {
+    height: 55px;
+    border-radius: 7px;
+    background: #eeeeee;
+    font-size: 19px;
+}
+
+.calc-buttons button:hover {
+    background: #ddd;
+}
+
+.calc-buttons .operator {
+    background: #d4a017;
+    color: white;
+}
+
+.calc-buttons .equal {
+    background: #222;
+    color: white;
+    grid-row: span 2;
+    height: 118px;
+}
+
+.calc-buttons .zero {
+    grid-column: span 2;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    margin-bottom: 7px;
+}
+
+.modal-content h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 17px;
+}
+
+.payment-result {
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 7px;
+    margin-top: 15px;
+}
+
+.payment-result p {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .receipt-wrapper {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .receipt-wrapper {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .produk-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =========================
+   PRINT
+========================= */
+
+@media print {
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    .receipt,
+    .receipt * {
+        visibility: visible;
+    }
+
+    .receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        max-width: 80mm;
+        box-shadow: none;
+        padding: 10px;
+    }
+
+    .btn-print {
+        display: none;
+    }
+
+}
